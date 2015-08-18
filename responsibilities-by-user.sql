@@ -22,7 +22,7 @@ AND fr.responsibility_id   = frt.responsibility_id
 AND fa.application_id      = fat.application_id
 AND fr.application_id      = fat.application_id
 AND frt.language           = USERENV('LANG')
-AND UPPER(fu.user_name)    = UPPER('AGNHOATO') -- <change it>
+AND UPPER(fu.user_name)    = UPPER('AGNHOATO')
   -- AND (furg.end_date IS NULL OR furg.end_date >= TRUNC(SYSDATE))
 ORDER BY
   frt.responsibility_name;
