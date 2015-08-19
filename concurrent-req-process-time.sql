@@ -23,8 +23,8 @@ SELECT
   ||'['
   ||f.description
   ||']',p.concurrent_program_name) concurrent_program_name ,
-  DECODE(f.phase_code,'R','Running','C','Complete',f.phase_code) Phase ,
-  f.status_code
+  DECODE(f.phase_code,'R','Running','C','Complete','P','Pending', f.phase_code) Phase ,
+  DECODE(f.status_code,'C', 'Normal', 'E', 'Error', 'R', 'Normal','X', 'Finalized', 'G', 'Warning','Q', 'Queue', 'I','Programed',f.status_code) status  
 FROM
   apps.fnd_concurrent_programs p ,
   apps.fnd_concurrent_programs_tl pt ,
