@@ -1,6 +1,6 @@
 # Oracle Util Queries
 
-This repository contains some some queries usefull when you are working with Oracle database/EBS.
+This repository contains some queries usefull when you are working with Oracle database/EBS.
 
 ## Contributing
 
