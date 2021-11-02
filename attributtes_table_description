@@ -1,0 +1,21 @@
+SELECT DISTINCT
+    a.application_table_name,
+    b.descriptive_flex_context_code,
+    b.application_column_name,
+    b.end_user_column_name,
+    b.form_left_prompt,
+    c.flex_value_set_name,
+    c.flex_value_set_id
+FROM
+    apps.fnd_flex_value_sets         c,
+    apps.fnd_descr_flex_col_usage_vl b,
+    apps.fnd_descriptive_flexs_vl    a
+WHERE
+    a.application_table_name LIKE upper('%&TABLE_NAME%')
+    AND a.application_id = b.application_id
+    AND a.descriptive_flexfield_name = b.descriptive_flexfield_name
+    AND b.flex_value_set_id = c.flex_value_set_id
+ORDER BY
+    1,
+    2,
+    3
