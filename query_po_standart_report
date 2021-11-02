@@ -1,0 +1,23 @@
+--this query is used to find default templates to purchase order standard reports 
+SELECT
+    pdt.document_template_code,
+    xtb.template_type_code
+FROM
+    po_document_types_all pdt,
+    xdo_templates_b xtb
+WHERE
+    pdt.document_type_code = :1
+    AND pdt.document_subtype = :2
+    AND pdt.document_template_code = xtb.template_code
+    AND nvl(pdt.org_id, 0) = :3
+
+SELECT  
+    pdt.*
+FROM
+    po_document_types_all pdt,
+    xdo_templates_b xtb
+WHERE 1=1
+   and pdt.document_type_code = 'PO'
+    AND pdt.document_subtype ='STANDARD'
+    AND pdt.document_template_code = xtb.template_code
+    AND nvl(pdt.org_id, 0) = 'XX';
